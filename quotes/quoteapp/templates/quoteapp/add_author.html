@@ -1,0 +1,43 @@
+{% extends "quoteapp/base.html" %}
+
+{% block content %}
+<table cellspacing=0 border=1><tr><td><br><h3 align=center>Author information</h3><br>
+
+<form method="POST" action="{% url 'quoteapp:add_author' %}">
+    {% csrf_token %}
+    <div style="padding: 10px">
+	<table border=0><tr><td width=65%>Enter the fullname of the author:</td><td width=35%>
+            {{form.fullname}}
+        </td></tr></table>
+        <span>{{ form.errors.fullname }}</span>
+    </div>
+    <div style="padding: 10px">
+        <table border=0><tr><td width=65%>Enter the author's date of birth:</td><td width=35%>
+            {{ form.born_date }}
+        </td></tr></table>
+        <span>{{ form.errors.born_date }}</span>
+    </div>
+    <div style="padding: 10px">
+        <table border=0><tr><td width=65%>Enter the birthplace of the author:</td><td width=35%>
+            {{ form.born_location }}
+        </td></tr></table>
+        <span>{{ form.errors.born_location }}</span>
+    </div>
+    <div style="padding: 10px">
+        <table border=0><tr><td width=65%>Enter the description of the author:</td><td width=35%>
+            {{ form.description }}
+        </td></tr></table>
+        <span>{{ form.errors.description }}</span>
+    </div>
+    <br>
+    <div align=center>
+        <button type="submit">Submit</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="reset">Reset</button>
+    </div>
+    <br>
+</form>
+
+</td></tr></table>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Quotes</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'quoteapp/style.css' %}">
+</head>
+<body><center>
+<script>
+        let pageWidth = document.documentElement.scrollWidth;
+        document.write("<table width="+pageWidth+" cellspacing=0 cellPadding=0>");
+</script> 
+       <tr><td width=80%>
+           <h1 class="center">
+               <a class="title" href="/">Quotes</a>
+           </h1>
+	</td>
+	{% if user.is_authenticated %}
+	<td width=20%>
+		<a class="no_underlining" href="{% url 'users:logout' %}" role="button">Logout</a>&nbsp;
+		<a class="no_underlining" href="/edit">Edit database</a>
+        </td></tr>
+
+	{% else %}
+	<td width=20%>
+            <p class="center">
+                <a class="no_underlining" href="/users/login">Login</a>&nbsp;
+		<a class="no_underlining" href="/users/signup">Sign Up</a>
+            </p>
+        </td></tr>
+	{% endif %}
+       <tr height=30></tr>
+    </table>
+
+{% block content %} {% endblock %}
+
+<br><br><br>Quotes by: <a class="no_underlining" href="https://www.goodreads.com/quotes" target="_blank">GoodReads.com</a>
+<center></body>
+</html>

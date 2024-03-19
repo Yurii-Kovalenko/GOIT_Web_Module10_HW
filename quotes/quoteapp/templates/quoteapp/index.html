@@ -1,0 +1,43 @@
+{% extends "quoteapp/base.html" %}
+
+{% load extract_tags %}
+
+{% block content %}
+<script>let tableWidth = document.documentElement.scrollWidth / 2;
+document.write("<table width="+tableWidth+" cellspacing=0 border=0>");
+var increasing = 5;</script>
+<tr><td><h3>Top Ten tags:</h3><center>
+{% for tag in top_tags %}
+&nbsp;<a class="tag_big_style" href="/tag/{{ tag.name }}/page/1/">
+<script>increasing=increasing-.5;document.write("<font size=+"+increasing+">");</script>
+{{ tag.name }}</font></a>
+{% endfor %}
+</center></td></tr></table><br><br><br>
+
+{% for quote in quotes %}
+<br><script>document.write("<table width="+tableWidth+" cellspacing=0 border=2>");</script><tr><td>
+<p align="justify" style="padding: 10px"> &nbsp; {{ quote.quote }} </p>
+<p style="padding: 10px">Author: <span class="author">{{ quote.author.fullname }}</span> <a class="author_link" href="/author/{{ quote.author.fullname_without_spaces }}">(about)</a></p>
+{% if quote.tags|tags_exist %}
+<p style="padding: 10px">Tags:
+{% for tag in quote.tags|tags %}
+<a class="tag_style" href="/tag/{{ tag }}/page/1/">{{ tag }}</a>
+{% endfor %}
+</p>
+{% endif %}
+</td></tr></table>
+{% endfor %}
+
+<br><script>document.write("<table width="+tableWidth+" cellspacing=0 border=0>");</script>
+<tr><td align="left">
+{% if quotes.has_previous %}
+<a class="next_link" href="/page/{{ quotes.previous_page_number }}">← Previous</a>
+{% endif %}
+</td>
+<td align="right">
+{% if quotes.has_next %}
+<a class="next_link" href="/page/{{ quotes.next_page_number }}">Next →</a>
+{% endif %}
+</td></tr></table>
+
+{% endblock %}

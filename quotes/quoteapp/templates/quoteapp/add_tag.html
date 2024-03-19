@@ -1,0 +1,23 @@
+{% extends "quoteapp/base.html" %}
+
+{% block content %}
+<table cellspacing=0 border=1><tr><td><br>
+<form method="POST" action="{% url 'quoteapp:add_tag' %}">
+    {% csrf_token %}
+    <div style="padding: 10px">
+        <label>Enter the tag name:
+            {{form.name}}
+        </label>
+        <span>{{ form.errors.name }}</span>
+    </div>
+    <br>
+    <div align=center>
+        <button type="submit">Submit</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="reset">Reset</button>
+    </div>
+    <br>
+</form>
+</td></tr></table>
+
+{% endblock %}

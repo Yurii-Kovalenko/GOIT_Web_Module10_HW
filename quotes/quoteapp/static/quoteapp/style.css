@@ -1,0 +1,52 @@
+body {
+  font-family: sans-serif;
+}
+
+.alert-error, .errorlist {
+    color: crimson;
+}
+
+.alert-success {
+    color: green;
+}
+
+.title {
+    color: #33ffaa;
+    text-decoration: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.no_underlining {
+    text-decoration: none;
+}
+
+.author {
+    color: #11FF44;
+    font-weight: bold;
+}
+
+.author_link {
+    text-decoration: none;
+    color: blue;
+}
+
+.tag_style {
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #000000;
+  background-color: #7CA3E6;
+  text-decoration: none;
+}
+
+.tag_big_style {
+  color: #0055EE;
+  text-decoration: none;
+}
+
+.next_link {
+    text-decoration: none;
+    color: blue;
+}

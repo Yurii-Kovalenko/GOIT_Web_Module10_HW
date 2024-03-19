@@ -1,0 +1,25 @@
+{% extends "quoteapp/base.html" %}
+
+{% block content %}
+
+<div>
+    <h3>Sign Up</h3>
+</div>
+<form method="post" action="{% url 'users:signup' %}">
+    {% csrf_token %}
+    <table border=0><tr>
+        <tr><td width=50%>Username:</td><td>
+            {{ form.username }}
+        <span>{{ form.errors.username }}</span></td></tr>
+     <tr><td width=50%>Password:</td><td>
+            {{ form.password1 }}
+        <span>{{ form.errors.password1 }}</span></td></tr>
+    <tr><td width=50%>Password confirmation:</td><td>
+            {{ form.password2 }}
+        <span>{{ form.errors.password2 }}</span></td></tr><tr><td><br></td></tr>
+    <tr><td width=50% align="center"><button type="submit">Submit</button></td>
+        <td align="center"><button type="reset">Reset</button></td></tr></table>
+</form>
+
+{% endblock %}
+
